@@ -11,29 +11,34 @@ function StackDataStructure () {
   }
 
   this.canPush = function(){
-    if (this.stackControl.length <= this.MAX_SIZE) {
-      return true
+    if (this.stackControl.length >= this.MAX_SIZE) {
+      return false
     } else{
-      return "Stack Overflow"
+      return true
     }
   }
-  this.push = function(element){
-    if(this.canPush){
-    this.stackControl.push(element)
-    return this.stackControl
+
+  this.push = function (element) {
+        
+    if (this.canPush()) {
+        this.stackControl.push(element);
+        return this.stackControl;
     } else {
-      return false
+        return "Stack Overflow";
     }
-  };
+};
 
   this.pop = function(element){
-    if (this.isEmpty) {
-      return this.stackControl.pop(element)
-    }else{
+    if (this.isEmpty()) {
       return "Stack Underflow"
+    }else{
+      return this.stackControl.pop(element)
     }
   }
  
 }
+
+
+
 
 
